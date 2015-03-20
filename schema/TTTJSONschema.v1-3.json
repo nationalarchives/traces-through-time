@@ -1,0 +1,2083 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "TTT JSON Schema, v1.3",
+    "description": "A person identified in a Traces Through Time dataset",
+    "type": "object",
+    "properties": {
+        "Person": {
+            "description": "person has age",
+            "type": "object",
+            "properties": {
+                "Comments": {
+                    "description": "general notes / comments",
+                    "type": "string"
+                },
+                "Ref": {
+                    "description": "person identifier",
+                    "type": "string"
+                },
+                "Type": {
+                    "description": "person gender",
+                    "type": "string",
+                    "enum": [
+                        "female",
+                        "male",
+                        "other",
+                        "unknown"
+                    ],
+                    "default": "unknown"
+                },
+                "UploadDate": {
+                    "description": "date/time person identified",
+                    "type": "string"
+                },
+                "HasAge": {
+                    "description": "person has age",
+                    "type": "object",
+                    "properties": {
+	                "Comments": {
+	                    "description": "general notes / comments",
+	                    "type": "string"
+	                },
+                        "Certain": {
+                            "description": "certainty of age identification",
+                            "type": "boolean"
+                        },
+                        "DateEnd": {
+                            "description": "end of dates covering age identification",
+                            "type": "number",
+                            "minimum": 1066,
+                            "maximum": 20151231
+                        },
+                        "DateStart": {
+                            "description": "start of date(s) covering age identification",
+                            "type": "number",
+                            "minimum": 1066,
+                            "maximum": 20151231
+                        },
+                        "Type": {
+                            "description": "exactness of age identification",
+                            "type": "string",
+                            "enum": [
+                                "approx",
+                                "exact"
+                            ],
+                            "default": "approx"
+                        },
+                        "Age": {
+                            "description": "age of person",
+                            "type": "object",
+                            "properties": {
+		                "Comments": {
+		                    "description": "general notes / comments",
+	        	            "type": "string"
+	                	},
+                                "End": {
+                                    "description": "end of age range",
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 120
+                                },
+                                "Name": {
+                                    "description": "description of age",
+                                    "type": "string"
+                                },
+                                "Start": {
+                                    "description": "start of age range",
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 120
+                                },
+                                "Type": {
+                                    "description": "exactness of age",
+                                    "type": "string",
+                                    "enum": [
+                                        "approx",
+                                        "exact"
+                                    ],
+                                    "default": "approx"
+                                }
+                            },
+                            "required": [
+                                "Start"
+                            ]
+                        }
+                    }
+                },
+                "HasAlias": {
+                    "description": "person has alias(es)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of alias identification",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of use of alias",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of use of alias",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Type": {
+                                "description": "type of alias",
+                                "type": "string",
+                                "enum": [
+                                    "acronym",
+                                    "alternative",
+                                    "epithet",
+                                    "nickname",
+                                    "pseudonym"
+                                ]
+                            },
+                            "Alias": {
+                                "description": "alias of person",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Name": {
+                                        "description": "name of alias",
+                                        "type": "string"
+                                    },
+                                    "HasParticle": {
+                                        "description": "alias has nobiliary or other descriptive/prepositional particles",
+                                        "type": "object",
+                                        "properties": {
+                                            "Comments": {
+		                                "description": "general notes / comments",
+	        	                        "type": "string"
+                                            },
+                                            "Particle": {
+                                                "description": "nobiliary/descriptive/prepositional particle",
+                                                "type": "object",
+                                                "properties": {
+                                                    "Comments": {
+		                                        "description": "general notes / comments",
+	        	                                "type": "string"
+                                                    },
+                                                    "Name": {
+                                                        "description": "name of particle",
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "ap",
+                                                            "d'",
+                                                            "de",
+                                                            "de la",
+                                                            "del",
+                                                            "della",
+                                                            "di",
+                                                            "du",
+                                                            "of",
+                                                            "the",
+                                                            "van",
+                                                            "von"
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "Name"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "HasAward": {
+                    "description": "person has award(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Campaign": {
+                                "description": "military campaign in which an individual award was won",
+                                "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of award",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of dates with award",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of date(s) with award",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Place": {
+                                "description": "location where an individual award was won",
+                                "type": "string"
+                            },
+                            "Award": {
+                                "description": "person's award",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Name": {
+                                        "description": "name of award",
+                                        "type": "string"
+                                    },
+                                    "HasAlias": {
+                                        "description": "award has alias(es)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "type of alias",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "acronym",
+                                                        "abbreviation",
+                                                        "alternative",
+                                                        "full",
+                                                        "nickname"
+                                                    ]
+                                                },
+                                                "Award": {
+                                                    "$ref": "#/properties/Person/properties/HasAward/items/properties/Award"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "HasChild": {
+                    "description": "person has children",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of having child",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of dates with child",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of date(s) with child",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Precedence": {
+                                "description": "sequence of child",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 25
+                            },
+                            "Score": {
+                                "description": "confidence weighting for the relationship assertion",
+                                "type": "number"
+                            },
+                            "Type": {
+                                "description": "relationship to child",
+                                "type": "string",
+                                "enum": [
+                                    "adopted",
+                                    "foster",
+                                    "natural",
+                                    "step"
+                                ],
+                                "default": "natural"
+                            },
+                            "Person": {
+                                "$ref": "#/properties/Person"
+                            }
+                        }
+                    }
+                },
+                "HasEvent": {
+                    "description": "person experiences event(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of experiencing the event",
+                                "type": "boolean"
+                            },
+                            "Event": {
+                                "description": "a personal event",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Genre": {
+                                        "description": "genre of event",
+                                        "type": "string",
+                                        "enum": [
+                                            "education",
+                                            "military",
+                                            "music",
+                                            "occupation",
+                                            "personal",
+                                            "sport",
+                                            "recreation"
+                                        ]
+                                    },
+                                    "Type": {
+                                        "description": "name of event",
+                                        "type": "string",
+                                        "enum": [
+                                            "baptism",
+                                            "birth",
+                                            "christening",
+                                            "conviction",
+                                            "death",
+                                            "discharge",
+                                            "dismissal",
+                                            "divorce",
+                                            "enrolment",
+                                            "graduation",
+                                            "marriage",
+                                            "resignation",
+                                            "retirement",
+                                            "separation",
+                                            "service"
+                                        ]
+                                    },
+                                    "HasDate": {
+                                        "description": "event has a date",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "maxItems": 5,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "exactness of date",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "approx",
+                                                        "exact"
+                                                    ],
+                                                    "default": "approx"
+                                                },
+                                                "Year": {
+                                                    "description": "year of event",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Comments": {
+		                                            "description": "general notes / comments",
+	        	                                    "type": "string"
+                                                        },
+                                                        "Name": {
+                                                            "description": "description of year",
+                                                            "type": "string"
+                                                        },
+                                                        "Value": {
+                                                            "description": "year",
+                                                            "type": "integer",
+                                                            "minimum": 1066,
+                                                            "maximum": 2015
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Value"
+                                                    ]
+                                                },
+                                                "Month": {
+                                                    "description": "month of event",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Comments": {
+		                                            "description": "general notes / comments",
+	        	                                    "type": "string"
+                                                        },
+                                                        "Name": {
+                                                            "description": "description of month",
+                                                            "type": "string"
+                                                        },
+                                                        "Value": {
+                                                            "description": "month",
+                                                            "type": "integer",
+                                                            "minimum": 1,
+                                                            "maximum": 12
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Value"
+                                                    ]
+                                                },
+                                                "Day": {
+                                                    "description": "day of event",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Comments": {
+		                                            "description": "general notes / comments",
+	        	                                    "type": "string"
+                                                        },
+                                                        "Name": {
+                                                            "description": "description of day",
+                                                            "type": "string"
+                                                        },
+                                                        "Value": {
+                                                            "description": "day",
+                                                            "type": "integer",
+                                                            "minimum": 1,
+                                                            "maximum": 31
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Value"
+                                                    ]
+                                                },
+                                                "Time": {
+                                                    "description": "time of event",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Comments": {
+		                                            "description": "general notes / comments",
+	        	                                    "type": "string"
+                                                        },
+                                                        "Name": {
+                                                            "description": "description of time",
+                                                            "type": "string"
+                                                        },
+                                                        "Timestamp": {
+                                                            "description": "time",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Timestamp"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HasEndDate": {
+                                        "description": "event has an end date",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "maxItems": 5,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "exactness of end date",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "approx",
+                                                        "exact"
+                                                    ],
+                                                    "default": "approx"
+                                                },
+                                                "Year": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Year"
+                                                },
+                                                "Month": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Month"
+                                                },
+                                                "Day": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Day"
+                                                },
+                                                "Time": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Time"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HasStartDate": {
+                                        "description": "event has a start date",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "maxItems": 5,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "exactness of start date",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "approx",
+                                                        "exact"
+                                                    ],
+                                                    "default": "approx"
+                                                },
+                                                "Year": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Year"
+                                                },
+                                                "Month": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Month"
+                                                },
+                                                "Day": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Day"
+                                                },
+                                                "Time": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Time"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HasOrganisation": {
+                                        "description": "event involves organisation(s)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "DateEnd": {
+                                                    "description": "end of involvement with organisation",
+                                                    "type": "number",
+                                                    "minimum": 1066,
+                                                    "maximum": 20151231
+                                                },
+                                                "DateStart": {
+                                                    "description": "start of involvement with organisation",
+                                                    "type": "number",
+                                                    "minimum": 1066,
+                                                    "maximum": 20151231
+                                                },
+                                                "Precedence": {
+                                                    "description": "sequence of involvement with organisation",
+                                                    "type": "integer",
+                                                    "minimum": 1,
+                                                    "maximum": 25
+                                                },
+                                                "Organisation": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Comments": {
+		                                            "description": "general notes / comments",
+	        	                                    "type": "string"
+                                                        },
+                                                        "Genre": {
+                                                            "description": "genre of organisation",
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "charity",
+                                                                "finance",
+                                                                "government",
+                                                                "education",
+                                                                "industry",
+                                                                "medical",
+                                                                "military",
+                                                                "music",
+                                                                "sport",
+                                                                "recreation"
+                                                            ]
+                                                        },
+                                                        "Name": {
+                                                            "description": "name of organisation",
+                                                            "type": "string"
+                                                        },
+                                                        "Ref": {
+                                                            "description": "organisation identifier",
+                                                            "type": "string"
+                                                        },
+                                                        "Type": {
+                                                            "description": "type of organisation",
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "bank",
+                                                                "campaign",
+                                                                "club",
+                                                                "factory",
+                                                                "group",
+                                                                "hospital",
+                                                                "regiment",
+                                                                "repository",
+                                                                "school",
+                                                                "team",
+                                                                "university"
+                                                            ]
+                                                        },
+                                                        "HasAlias": {
+                                                            "description": "organisation has alias(es)",
+                                                            "type": "array",
+                                                            "minItems": 0,
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "Comments": {
+		                                                        "description": "general notes / comments",
+	        	                                                "type": "string"
+                                                                    },
+                                                                    "Type": {
+                                                                        "description": "type of alias",
+                                                                        "type": "string",
+                                                                        "enum": [
+                                                                            "abbreviation",
+                                                                            "acronym",
+                                                                            "alternative",
+                                                                            "full",
+                                                                            "nickname",
+                                                                            "variant"
+                                                                        ]
+                                                                    },
+                                                                    "Organisation": {
+                                                                        "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasOrganisation/items/properties/Organisation"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Name"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HasPlace": {
+                                        "description": "event involves place(s)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "DateEnd": {
+                                                    "description": "end of involvement of event with place",
+                                                    "type": "number",
+                                                    "minimum": 1066,
+                                                    "maximum": 20151231
+                                                },
+                                                "DateStart": {
+                                                    "description": "start of involvement of event with place",
+                                                    "type": "number",
+                                                    "minimum": 1066,
+                                                    "maximum": 20151231
+                                                },
+                                                "Precedence": {
+                                                    "description": "sequence of involvement of event with place",
+                                                    "type": "integer",
+                                                    "minimum": 1,
+                                                    "maximum": 25
+                                                },
+                                                "Place": {
+                                                    "$ref": "#/properties/Person/properties/HasPlace/items/properties/Place"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "Type"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "HasFamilyName": {
+                    "description": "person has a family name",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of person's possession of a family name",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of person's possession of a family name",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of person's possession of a family name",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Order": {
+                                "description": "formal order of person's multiple family names",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 5
+                            },
+                            "Precedence": {
+                                "description": "chronological sequence of person's possession of different family names",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 5
+                            },
+                            "Preference": {
+                                "description": "preference of person's usage of a family name",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 5
+                            },
+                            "FamilyName": {
+                                "description": "person's family name",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Name": {
+                                        "description": "name of person's family name",
+                                        "type": "string"
+                                    },
+                                    "Type": {
+                                        "description": "type of person's family name",
+                                        "type": "string",
+                                        "enum": [
+                                            "abbreviation",
+                                            "full",
+                                            "initial",
+                                            "nickname",
+                                            "pseudonym"
+                                        ]
+                                    },
+                                    "HasAlias": {
+                                        "description": "person's family name has alias(es)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "type of person's family name alias",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "abbreviation",
+                                                        "alternative",
+                                                        "full",
+                                                        "initial",
+                                                        "nickname",
+                                                        "pseudonym",
+                                                        "variant"
+                                                    ]
+                                                },
+                                                "FamilyName": {
+                                                    "$ref": "#/properties/Person/properties/HasFamilyName/items/properties/FamilyName"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HasParticle": {
+                                        "$ref": "#/properties/Person/properties/HasAlias/items/properties/Alias/properties/HasParticle"
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        },
+                        "required": [
+                        "FamilyName",
+                        "Order"
+                        ]
+                    }
+                },
+                "HasForeName": {
+                    "description": "person has forename(s)",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of person's possession of a forename",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of person's possession of a forename",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of person's possession of a forename",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Order": {
+                                "description": "formal order of person's multiple forenames",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 5
+                            },
+                            "Precedence": {
+                                "description": "chronological sequence of person's possession of different forenames",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 5
+                            },
+                            "Preference": {
+                                "description": "preference of person's usage of a forename",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 5
+                            },
+                            "ForeName": {
+                                "description": "person's forename",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Name": {
+                                        "description": "forename",
+                                        "type": "string"
+                                    },
+                                    "Type": {
+                                        "description": "type of forename",
+                                        "type": "string",
+                                        "enum": [
+                                            "abbreviation",
+                                            "diminutive",
+                                            "full",
+                                            "initial",
+                                            "nickname",
+                                            "pseudonym"
+                                        ]
+                                    },
+                                    "HasAlias": {
+                                        "description": "forename has alias(es)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "type of alias",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "abbreviation",
+                                                        "alternative",
+                                                        "diminutive",
+                                                        "full",
+                                                        "initial",
+                                                        "nickname",
+                                                        "pseudonym",
+                                                        "variant"
+                                                    ]
+                                                },
+                                                "ForeName": {
+                                                    "$ref": "#/properties/Person/properties/HasForeName/items/properties/ForeName"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        },
+                        "required": [
+                        "ForeName",
+                        "Order"
+                        ]
+                    }
+                },
+                "HasNationality": {
+                    "description": "person has nationality/ies",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of nationality identification",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of possession of a nationality",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of possession of a nationality",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Precedence": {
+                                "description": "sequence of possession of a nationality",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 5
+                            },
+                            "Nationality": {
+                                "description": "nationality of person",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Name": {
+                                        "description": "name of nationality",
+                                        "type": "string"
+                                    },
+                                    "Ref": {
+                                        "description": "nationality identifier",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "HasOccupation": {
+                    "description": "person has occupation(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of occupation",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of dates with occupation",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of date(s) with occupation",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Precedence": {
+                                "description": "sequence of occupation",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 25
+                            },
+                            "Occupation": {
+                                "description": "person's occupation",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Genre": {
+                                        "description": "field of occupation",
+                                        "type": "string",
+                                        "enum": [
+                                            "education",
+                                            "finance",
+                                            "government",
+                                            "industry",
+                                            "military",
+                                            "music",
+                                            "sport",
+                                            "recreation"
+                                        ]
+                                    },
+                                    "Name": {
+                                        "description": "name of occupation",
+                                        "type": "string"
+                                    },
+                                    "HasAlias": {
+                                        "description": "occupation has alias(es)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "type of alias",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "abbreviation",
+                                                        "acronym",
+                                                        "alternative",
+                                                        "full",
+                                                        "nickname",
+                                                        "variant"
+                                                    ]
+                                                },
+                                                "Occupation": {
+                                                    "$ref": "#/properties/Person/properties/HasOccupation/items/properties/Occupation"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "HasOrigin": {
+                    "description": "person has a place of origin or birth",
+                    "type": "object",
+                    "properties": {
+	                "Comments": {
+	                    "description": "general notes / comments",
+	                    "type": "string"
+	                },
+                        "Certain": {
+                            "description": "certainty of identification of place of origin or birth",
+                            "type": "boolean"
+                        },
+                        "DateEnd": {
+                            "description": "end of dates at place of origin or birth",
+                            "type": "number",
+                            "minimum": 1066,
+                            "maximum": 20151231
+                        },
+                        "DateStart": {
+                            "description": "start of date(s) at place of origin or birth",
+                            "type": "number",
+                            "minimum": 1066,
+                            "maximum": 20151231
+                        },
+                        "Place": {
+                            "$ref": "#/properties/Person/properties/HasPlace/items/properties/Place"
+                        }
+                    }
+                },
+                "HasParent": {
+                    "description": "person has parent(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of having this parent",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of dates having this parent",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of date(s) having this parent",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Precedence": {
+                                "description": "sequence of parent",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 25
+                            },
+                            "Score": {
+                                "description": "confidence weighting for the relationship assertion",
+                                "type": "number"
+                            },
+                            "Type": {
+                                "description": "relationship to parent",
+                                "type": "string",
+                                "enum": [
+                                    "adoptive",
+                                    "foster",
+                                    "natural",
+                                    "step"
+                                ],
+                                "default": "natural"
+                            },
+                            "Person": {
+                                "$ref": "#/properties/Person"
+                            }
+                        }
+                    }
+                },
+                "HasPlace": {
+                    "description": "person has association with a place",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of association with the place",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of association with the place",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of association with the place",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Type": {
+                                "description": "nature of association with the place",
+                                "type": "string",
+                                "enum": [
+                                    "home",
+                                    "posting",
+                                    "recreation",
+                                    "school",
+                                    "training",
+                                    "university",
+                                    "work"
+                                ]
+                            },
+                            "Place": {
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Name": {
+                                        "description": "name of place",
+                                        "type": "string"
+                                    },
+                                    "Type": {
+                                        "description": "type of place",
+                                        "type": "string",
+                                        "enum": [
+                                            "city",
+                                            "country",
+                                            "county",
+                                            "dwelling",
+                                            "location",
+                                            "region",
+                                            "street",
+                                            "town",
+                                            "village"
+                                        ]
+                                    },
+                                    "HasAlias": {
+                                        "description": "place has alias(es)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "type of place alias",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "abbreviation",
+                                                        "acronym",
+                                                        "alternative",
+                                                        "full",
+                                                        "nickname",
+                                                        "postcode",
+                                                        "variant"
+                                                    ]
+                                                },
+                                                "Place": {
+                                                    "$ref": "#/properties/Person/properties/HasPlace/items/properties/Place"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HasPlace": {
+                                        "description": "place wholly or partially contains another place",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Place": {
+                                                    "$ref": "#/properties/Person/properties/HasPlace/items/properties/Place"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "IsWithin": {
+                                        "description": "place is wholly or partially contained by another place",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Place": {
+                                                    "$ref": "#/properties/Person/properties/HasPlace/items/properties/Place"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "HasReference": {
+                    "description": "person has reference number(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of possession of reference number",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of possession of reference number",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of possession of reference number",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Reference": {
+                                "description": "reference number of person",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Genre": {
+                                        "description": "genre of reference number of person",
+                                        "type": "string",
+                                        "enum": [
+                                            "",
+                                            "airforce",
+                                            "army",
+                                            "military",
+                                            "navy",
+                                            "personal",
+                                            "police",
+                                            "prison"
+                                        ]
+                                    },
+                                    "Name": {
+                                        "description": "name of reference number of person",
+                                        "type": "string"
+                                    },
+                                    "Type": {
+                                        "description": "type of reference number of person",
+                                        "type": "string",
+                                        "enum": [
+                                            "",
+                                            "catalogue",
+                                            "certificate",
+                                            "discharge",
+                                            "enrolment",
+                                            "passport",
+                                            "service"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "HasRelation": {
+                    "description": "person has non-immediate family relation(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of having this non-immediate family relation",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of dates having this non-immediate family relation",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of date(s) having this non-immediate family relation",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Name": {
+                                "description": "name of relationship to this non-immediate family relation",
+                                "type": "string",
+                                "enum": [
+                                    "aunt",
+                                    "cousin",
+                                    "grandchild",
+                                    "granddaughter",
+                                    "grandfather",
+                                    "grandmother",
+                                    "grandparent",
+                                    "grandson",
+                                    "great-aunt",
+                                    "great-grandchild",
+                                    "great-granddaughter",
+                                    "great-grandfather",
+                                    "great-grandmother",
+                                    "great-grandparent",
+                                    "great-grandson",
+                                    "great-great-grandchild",
+                                    "great-great-granddaughter",
+                                    "great-great-grandfather",
+                                    "great-great-grandmother",
+                                    "great-great-grandparent",
+                                    "great-great-grandson",
+                                    "great-great-great-grandchild",
+                                    "great-great-great-granddaughter",
+                                    "great-great-great-grandfather",
+                                    "great-great-great-grandmother",
+                                    "great-great-great-grandparent",
+                                    "great-great-great-grandson",
+                                    "great-uncle",
+                                    "neice",
+                                    "nephew",
+                                    "uncle"
+                                ]
+                            },
+                            "Score": {
+                                "description": "confidence weighting for the relationship assertion",
+                                "type": "number"
+                            },
+                            "Type": {
+                                "description": "type of relationship to this non-immediate family relation",
+                                "type": "string",
+                                "enum": [
+                                    "adopted",
+                                    "adoptive",
+                                    "foster",
+                                    "half",
+                                    "natural",
+                                    "removed",
+                                    "step"
+                                ],
+                                "default": "natural"
+                            },
+                            "Person": {
+                                "$ref": "#/properties/Person"
+                            }
+                        }
+                    }
+                },
+                "HasRole": {
+                    "description": "person has role(s) in or regarding something",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of involvement with the role",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of involvement with the role",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of involvement with the role",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Name": {
+                                "description": "description or nature of the role",
+                                "type": "string"
+                            },
+                            "Precedence": {
+                                "description": "sequence of involvement with the role",
+                                "type": "integer",
+                                "minimum": 1
+                            },
+                            "Event": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event"
+                            },
+                            "Organisation": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasOrganisation/items/properties/Organisation"
+                            },
+                            "Person": {
+                                "$ref": "#/properties/Person"
+                            }
+                        }
+                    }
+                },
+                "HasSibling": {
+                    "description": "person has siblings",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of having sibling",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of having sibling",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of having sibling",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Precedence": {
+                                "description": "relative order of siblings where -1 etc. is younger and +1 etc. is older",
+                                "type": "integer",
+                                "minimum": -25,
+                                "maximum": 25
+                            },
+                            "Score": {
+                                "description": "confidence weighting for the relationship assertion",
+                                "type": "number"
+                            },
+                            "Type": {
+                                "description": "relationship to sibling",
+                                "type": "string",
+                                "enum": [
+                                    "adopted",
+                                    "half",
+                                    "natural",
+                                    "step"
+                                ],
+                                "default": "natural"
+                            },
+                            "Person": {
+                                "$ref": "#/properties/Person"
+                            }
+                        }
+                    }
+                },
+                "HasSpouse": {
+                    "description": "person has spouse(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of having spouse",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of having spouse",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of having spouse",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Precedence": {
+                                "description": "sequence of spouse",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 10
+                            },
+                            "Score": {
+                                "description": "confidence weighting for the relationship assertion",
+                                "type": "number"
+                            },
+                            "Type": {
+                                "description": "type of spouse relationship",
+                                "type": "string",
+                                "enum": [
+                                    "civil",
+                                    "marriage",
+                                    "partner"
+                                ],
+                                "default": "marriage"
+                            },
+                            "Person": {
+                                "$ref": "#/properties/Person"
+                            }
+                        }
+                    }
+                },
+                "HasTitle": {
+                    "description": "person has title(s)",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of having title",
+                                "type": "boolean"
+                            },
+                            "DateEnd": {
+                                "description": "end of having title",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "DateStart": {
+                                "description": "start of having title",
+                                "type": "number",
+                                "minimum": 1066,
+                                "maximum": 20151231
+                            },
+                            "Precedence": {
+                                "description": "sequence of title",
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 25
+                            },
+                            "Title": {
+                                "description": "person's title",
+                                "type": "object",
+                                "properties": {
+                                    "Comments": {
+		                        "description": "general notes / comments",
+	        	                "type": "string"
+                                    },
+                                    "Name": {
+                                        "description": "name of title",
+                                        "type": "string"
+                                    },
+                                    "HasAlias": {
+                                        "description": "title has alias(es)",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "type of alias",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "acronym",
+                                                        "abbreviation",
+                                                        "alternative",
+                                                        "full",
+                                                        "nickname"
+                                                    ]
+                                                },
+                                                "Title": {
+                                                    "$ref": "#/properties/Person/properties/HasTitle/items/properties/Title"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "Name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "InContainer": {
+                    "description": "Data and context in which person is found",
+                    "type": "object",
+                    "properties": {
+	                "Comments": {
+	                    "description": "general notes / comments",
+	                    "type": "string"
+	                },
+                        "Context": {
+                            "description": "immediate context in which person is found",
+                            "type": "object",
+                            "properties": {
+		                "Comments": {
+		                    "description": "general notes / comments",
+	        	            "type": "string"
+	                	},
+                                "Name": {
+                                    "description": "immediate sentence, cell or 50 chars either side",
+                                    "type": "string"
+                                },
+                                "Ref": {
+                                    "description": "original machine-readable or system identifier",
+                                    "type": "string"
+                                },
+                                "InContainer": {
+                                    "description": "Document in which person is found",
+                                    "type": "object",
+                                    "properties": {
+                                        "Comments": {
+		                            "description": "general notes / comments",
+	        	                    "type": "string"
+                                        },
+                                        "Document": {
+                                            "description": "parent data structure in which person is found (eg. webpage or spreadsheet) or a smaller, discrete unit within such a data structure (eg. paragraph or row)",
+                                            "type": "object",
+                                            "properties": {
+                                                "Comments": {
+		                                    "description": "general notes / comments",
+	        	                            "type": "string"
+                                                },
+                                                "Filepath": {
+                                                    "description": "local file system path to any file that is the origin of the source data",
+                                                    "type": "string"
+                                                },
+                                                "Name": {
+                                                    "description": "an original document reference no.",
+                                                    "type": "string"
+                                                },
+                                                "Quality": {
+                                                    "description": "indication of the quality and/or reliability of the source data",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "high",
+                                                        "low",
+                                                        "medium"
+                                                    ]
+                                                },
+                                                "Ref": {
+                                                    "description": "original machine-readable or system identifier",
+                                                    "type": "string"
+                                                },
+                                                "Type": {
+                                                    "description": "format of the container data structure",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "entry",
+                                                        "page",
+                                                        "paragraph",
+                                                        "row",
+                                                        "spreadsheet",
+                                                        "webpage"
+                                                    ]
+                                                },
+                                                "URL": {
+                                                    "description": "container webpage (or sub-section thereof if identified by a '#' fragment identifier)",
+                                                    "type": "string"
+                                                },
+                                                "HasDate": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate"
+                                                },
+                                                "HasEndDate": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasEndDate"
+                                                },
+                                                "HasStartDate": {
+                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasStartDate"
+                                                },
+                                                "HeldBy": {
+                                                    "description": "repository or institution which now curates the original document or dataset",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Comments": {
+		                                            "description": "general notes / comments",
+	        	                                    "type": "string"
+                                                        },
+                                                        "Organisation": {
+                                                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasOrganisation/items/properties/Organisation"
+                                                        }
+                                                    }
+                                                },
+                                                "InContainer": {
+                                                    "description": "Document or Source in which person is found",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Comments": {
+		                                            "description": "general notes / comments",
+	        	                                    "type": "string"
+                                                        },
+                                                        "Document": {
+                                                            "$ref": "#/properties/Person/properties/InContainer/properties/Context/properties/InContainer/properties/Document"
+                                                        },
+                                                        "Source": {
+                                                            "description": "the wider document container (eg. website or folder)",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "Comments": {
+		                                                    "description": "general notes / comments",
+	        	                                            "type": "string"
+                                                                },
+                                                                "Name": {
+                                                                    "description": "an original reference no.",
+                                                                    "type": "string"
+                                                                },
+                                                                "Quality": {
+                                                                    "description": "indication of the quality and/or reliability of the source data",
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "high",
+                                                                        "low",
+                                                                        "medium"
+                                                                    ]
+                                                                },
+                                                                "Ref": {
+                                                                    "description": "original machine-readable or system identifier",
+                                                                    "type": "string"
+                                                                },
+                                                                "Type": {
+                                                                    "description": "format of the document container",
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "book",
+                                                                        "catalogue",
+                                                                        "dataset",
+                                                                        "folder",
+                                                                        "series",
+                                                                        "website"
+                                                                    ]
+                                                                },
+                                                                "URL": {
+                                                                    "description": "container website",
+                                                                    "type": "string"
+                                                                },
+                                                                "HasDate": {
+                                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate"
+                                                                },
+                                                                "HasEndDate": {
+                                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasEndDate"
+                                                                },
+                                                                "HasStartDate": {
+                                                                    "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasStartDate"
+                                                                },
+                                                                "HeldBy": {
+                                                                    "description": "repository or institution which now curates the catalogue, dataset, website etc",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "Comments": {
+		                                                            "description": "general notes / comments",
+	        	                                                    "type": "string"
+                                                                        },
+                                                                        "Organisation": {
+                                                                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasOrganisation/items/properties/Organisation"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "Name"
+                            ]
+                        }
+                    }
+                },
+                "IsAlive": {
+                    "description": "a single 'floruit' date for a person inferred from the data",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of 'floruit' date",
+                                "type": "boolean"
+                            },
+                            "Year": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Year"
+                            },
+                            "Month": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Month"
+                            },
+                            "Day": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Day"
+                            }
+                        }
+                    }
+                },
+                "IsEndAlive": {
+                    "description": "end of 'floruit' date range for a person inferred from the data",
+                    "type": "object",
+                    "properties": {
+	                "Comments": {
+	                    "description": "general notes / comments",
+	                    "type": "string"
+	                },
+                        "Certain": {
+                            "description": "certainty of end of 'floruit' date range",
+                            "type": "boolean"
+                        },
+                        "Year": {
+                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Year"
+                        },
+                        "Month": {
+                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Month"
+                        },
+                        "Day": {
+                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Day"
+                        }
+                    }
+                },
+                "IsStartAlive": {
+                    "description": "start of 'floruit' date range for a person inferred from the data",
+                    "type": "object",
+                    "properties": {
+	                "Comments": {
+	                    "description": "general notes / comments",
+	                    "type": "string"
+	                },
+                        "Certain": {
+                            "description": "certainty of start of 'floruit' date range",
+                            "type": "boolean"
+                        },
+                        "Year": {
+                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Year"
+                        },
+                        "Month": {
+                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Month"
+                        },
+                        "Day": {
+                            "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Day"
+                        }
+                    }
+                },
+                "IsDead": {
+                    "description": "deceased status for a person inferred from the data",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Certain": {
+                                "description": "certainty of deceased status",
+                                "type": "boolean"
+                            },
+                            "Year": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Year"
+                            },
+                            "Month": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Month"
+                            },
+                            "Day": {
+                                "$ref": "#/properties/Person/properties/HasEvent/items/properties/Event/properties/HasDate/items/properties/Day"
+                            }
+                        }
+                    }
+                },
+                "SameAs": {
+                    "description": "probability that another person might be the same as this person",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Comments": {
+		                "description": "general notes / comments",
+	        	        "type": "string"
+                            },
+                            "Genre": {
+                                "description": "how the 'same as' assertion was derived",
+                                "type": "string",
+                                "enum": [
+                                    "algorithmic",
+                                    "documented"
+                                ]
+                            },
+                            "Id": {
+                                "description": "id of the relevant batch or result set stored in an auditing database, eg. MongoDB",
+                                "type": "string"
+                            },
+                            "Score": {
+                                "description": "weighting for the 'same as' assertion",
+                                "type": "number"
+                            },
+                            "Timestamp": {
+                                "description": "date/time the 'same as' assertion was made",
+                                "type": "string"
+                            },
+                            "Type": {
+                                "description": "algorithmic methods employed in the 'same as' assertion",
+                                "type": "string"
+                            },
+                            "Person": {
+                                "$ref": "#/properties/Person"
+                            }
+                        },
+                        "required": [
+                            "Person",
+                            "Score",
+                            "Timestamp"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "InContainer",
+                "Ref",
+                "Type",
+                "UploadDate"
+            ]
+        }
+    }
+}

@@ -1,0 +1,1 @@
+java -jar ttt.jar --conf "C:\Users\laptop\Documents\TracesThroughTime\TNA_final\record_linkage\src\resources\configuration.properties"
