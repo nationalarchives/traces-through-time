@@ -1,0 +1,1598 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "TTT JSON Schema, v2.1",
+  "description": "A person identified in a Traces Through Time dataset",
+  "type": "object",
+  "properties": {
+    "comments": {
+      "type": "string",
+      "description": "notes or comments"
+    },
+    "aliveYear": { "type": "object",
+      "description": "single 'floruit' date for a person inferred from the data",
+      "minItems": 0,
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "certain": {
+          "type": "boolean",
+          "description": "certainty of 'floruit' date"
+        },
+        "year": { "$ref": "#/definitions/year"
+        }
+      }
+    },
+    "aliveYearEnd": { "type": "object",
+      "description": "end of 'floruit' date range for a person inferred from the data",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "certain": {
+          "type": "boolean",
+          "description": "certainty of end of 'floruit' date range"
+        },
+        "year": { "$ref": "#/definitions/year"
+        }
+      }
+    },
+    "aliveYearStart": { "type": "object",
+      "description": "start of 'floruit' date range for a person inferred from the data",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "certain": {
+          "type": "boolean",
+          "description": "certainty of start of 'floruit' date range"
+        },
+        "year": { "$ref": "#/definitions/year"
+        }
+      }
+    },
+    "deadYear": { "type": "object",
+      "description": "single deceased date for a person inferred from the data",
+      "minItems": 0,
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "certain": {
+          "type": "boolean",
+          "description": "certainty of deceased date"
+        },
+        "year": { "$ref": "#/definitions/year"
+        }
+      }
+    },
+    "hasAge": { "type": "object",
+      "description": "person has an age",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "certain": {
+          "type": "boolean",
+          "description": "certainty of age identification"
+        },
+        "dateEnd": {
+          "type": "number",
+          "description": "end of dates covering age identification"
+        },
+        "dateStart": {
+          "type": "number",
+          "description": "start of date(s) covering age identification"
+        },
+        "type": {
+          "type": "string",
+          "description": "exactness of age identification",
+          "enum": [
+            "APPROX",
+            "EXACT"
+          ],
+          "default": "APPROX"
+        },
+        "age": { "type": "object",
+          "description": "age of person",
+          "properties": {
+            "comments": {
+              "type": "string",
+              "description": "notes or comments"
+            },
+            "end": {
+              "type": "number",
+              "description": "end of age range"
+            },
+            "name": {
+              "type": "string",
+              "description": "description of age"
+            },
+            "start": {
+              "type": "number",
+              "description": "start of age range"
+            },
+            "type": {
+              "type": "string",
+              "description": "exactness of age",
+              "enum": [
+                "APPROX",
+                "EXACT"
+              ],
+              "default": "APPROX"
+            }
+          },
+          "required": [
+            "start"
+          ]
+        }
+      }
+    },
+    "hasAliases": { "type": "array",
+      "description": "person has alias(es)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of alias identification"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of use of alias"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of use of alias"
+          },
+          "type": {
+            "type": "string",
+            "description": "type of alias"
+          },
+          "alias": { "type": "object",
+            "description": "alias of person",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "name": {
+                "type": "string",
+                "description": "name of alias"
+              },
+              "hasParticle": { "$ref": "#/definitions/hasParticle"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      }
+    },
+    "hasAwards": { "type": "array",
+      "description": "person has award(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of award"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of dates with award"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of date(s) with award"
+          },
+          "origin": {
+            "type": "string",
+            "description": "location or campaign where an individual award was won"
+          },
+          "award": { "$ref": "#/definitions/award"
+          }
+        }
+      }
+    },
+    "hasChilds": { "type": "array",
+      "description": "person has children",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of having child"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of dates with child"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of date(s) with child"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of child"
+          },
+          "score": {
+            "type": "number",
+            "description": "confidence weighting for the relationship assertion"
+          },
+          "type": {
+            "type": "string",
+            "description": "relationship to child"
+          },
+          "person": { "$ref": "#"
+          }
+        }
+      }
+    },
+    "hasEvents": { "type": "array",
+      "description": "person experiences event(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of experiencing the event"
+          },
+          "event": { "$ref": "#/definitions/event"
+          }
+        }
+      }
+    },
+    "hasFamilyNames": { "type": "array",
+      "description": "person has a family name",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of person's possession of a family name"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of person's possession of a family name"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of person's possession of a family name"
+          },
+          "order": {
+            "type": "integer",
+            "description": "formal order of person's multiple family names"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "chronological sequence of person's possession of different family names"
+          },
+          "preference": {
+            "type": "integer",
+            "description": "preference of person's usage of a family name"
+          },
+          "familyName": { "$ref": "#/definitions/familyName"
+          }
+        },
+        "required": [
+          "familyName",
+          "order"
+        ]
+      }
+    },
+    "hasForeNames": { "type": "array",
+      "description": "person has forename(s)",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of person's possession of a forename"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of person's possession of a forename"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of person's possession of a forename"
+          },
+          "order": {
+            "type": "integer",
+            "description": "formal order of person's multiple forenames"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "chronological sequence of person's possession of different forenames"
+          },
+          "preference": {
+            "type": "integer",
+            "description": "preference of person's usage of a forename"
+          },
+          "foreName": { "$ref": "#/definitions/foreName"
+          }
+        },
+        "required": [
+          "foreName",
+          "order"
+        ]
+      }
+    },
+    "hasNationalities": { "type": "array",
+      "description": "person has nationality/ies",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of nationality identification"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of possession of a nationality"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of possession of a nationality"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of possession of a nationality"
+          },
+          "nationality": { "type": "object",
+            "description": "nationality of person",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "name": {
+                "type": "string",
+                "description": "name of nationality"
+              },
+              "ref": {
+                "type": "string",
+                "description": "nationality identifier"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      }
+    },
+    "hasOccupations": { "type": "array",
+      "description": "person has occupation(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of occupation"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of dates with occupation"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of date(s) with occupation"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of occupation"
+          },
+          "occupation": { "$ref": "#/definitions/occupation"
+          }
+        }
+      }
+    },
+    "hasParents": { "type": "array",
+      "description": "person has parent(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of having this parent"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of dates having this parent"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of date(s) having this parent"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of parent"
+          },
+          "score": {
+            "type": "number",
+            "description": "confidence weighting for the relationship assertion"
+          },
+          "type": {
+            "type": "string",
+            "description": "relationship to parent"
+          },
+          "person": { "$ref": "#"
+          }
+        }
+      }
+    },
+    "hasPlaces": { "$ref": "#/definitions/hasPlaces"
+    },
+    "hasReferences": { "type": "array",
+      "description": "person has reference number(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of possession of reference number"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of possession of reference number"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of possession of reference number"
+          },
+          "reference": { "type": "object",
+            "description": "reference number of person",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "genre": {
+                "type": "string",
+                "description": "genre of reference number of person"
+              },
+              "name": {
+                "type": "string",
+                "description": "name of reference number of person"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of reference number of person"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      }
+    },
+    "hasRelations": { "type": "array",
+      "description": "person has non-immediate family relation(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of having this non-immediate family relation"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of dates having this non-immediate family relation"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of date(s) having this non-immediate family relation"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of relationship to this non-immediate family relation"
+          },
+          "score": {
+            "type": "number",
+            "description": "confidence weighting for the relationship assertion"
+          },
+          "type": {
+            "type": "string",
+            "description": "type of relationship to this non-immediate family relation"
+          },
+          "person": { "$ref": "#"
+          }
+        }
+      }
+    },
+    "hasRoles": { "type": "array",
+      "description": "person has role(s) in or regarding something",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of involvement with the role"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of involvement with the role"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of involvement with the role"
+          },
+          "name": {
+            "type": "string",
+            "description": "description or nature of the role"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of involvement with the role"
+          },
+          "event": { "$ref": "#/definitions/event"
+          },
+          "organisation": { "$ref": "#/definitions/organisation"
+          },
+          "person": { "$ref": "#"
+          },
+          "place": { "$ref": "#/definitions/place"
+          }
+        }
+      }
+    },
+    "hasSiblings": { "type": "array",
+      "description": "person has siblings",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of having sibling"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of having sibling"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of having sibling"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "relative order of siblings where -1 etc. is younger and +1 etc. is older"
+          },
+          "score": {
+            "type": "number",
+            "description": "confidence weighting for the relationship assertion"
+          },
+          "type": {
+            "type": "string",
+            "description": "relationship to sibling"
+          },
+          "person": { "$ref": "#"
+          }
+        }
+      }
+    },
+    "hasSpouses": { "type": "array",
+      "description": "person has spouse(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of having spouse"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of having spouse"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of having spouse"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of spouse"
+          },
+          "score": {
+            "type": "number",
+            "description": "confidence weighting for the relationship assertion"
+          },
+          "type": {
+            "type": "string",
+            "description": "type of spouse relationship"
+          },
+          "person": { "$ref": "#"
+          }
+        }
+      }
+    },
+    "hasTitles": { "type": "array",
+      "description": "person has title(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of having title"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of having title"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of having title"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of title"
+          },
+          "title": { "$ref": "#/definitions/title"
+          }
+        }
+      }
+    },
+    "inContainer": { "$ref": "#/definitions/inContainer"
+    },
+    "ref": { "type": "string",
+      "description": "person identifier"
+    },
+    "sameAs": { "type": "array",
+      "description": "another person that might be the 'same as' this person",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "genre": {
+            "type": "string",
+            "description": "how the 'same as' assertion was derived"
+          },
+          "id": {
+            "type": "string",
+            "description": "id of the relevant batch or result set stored in an auditing database, eg. MongoDB"
+          },
+          "score": {
+            "type": "number",
+            "description": "weighting for the 'same as' assertion"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "date/time the 'same as' assertion was made"
+          },
+          "type": {
+            "type": "string",
+            "description": "algorithmic methods employed in the 'same as' assertion"
+          },
+          "person": { "$ref": "#"
+          }
+        },
+        "required": [
+          "person",
+          "score",
+          "timestamp"
+        ]
+      }
+    },
+    "timestamp": { "type": "string",
+      "description": "date/time person identified"
+    },
+    "type": { "type": "string",
+      "description": "person gender",
+      "enum": [
+        "FEMALE",
+        "MALE",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "default": "UNKNOWN"
+    }
+  },
+  "required": [
+    "inContainer",
+    "ref",
+    "timestamp",
+    "type"
+  ],
+
+
+
+  "definitions": {
+    "award": { "type": "object",
+      "description": "person's award",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of award"
+        },
+        "awardAliases": { "type": "array",
+          "description": "award has alias(es)",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of alias"
+              },
+              "award": { "$ref": "#/definitions/award"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "context": { "type": "object",
+      "description": "immediate data context in which person is found",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "immediate sentence, cell or 50 chars either side"
+        },
+        "ref": {
+          "type": "string",
+          "description": "original machine-readable or system identifier"
+        },
+        "hasDay": { "$ref": "#/definitions/hasDay"
+        },
+        "hasEndYear": { "$ref": "#/definitions/hasEndYear"
+        },
+        "hasMonth": { "$ref": "#/definitions/hasMonth"
+        },
+        "hasStartYear": { "$ref": "#/definitions/hasStartYear"
+        },
+        "hasTime": { "$ref": "#/definitions/hasTime"
+        },
+        "hasYear": { "$ref": "#/definitions/hasYear"
+        },
+        "inContainer": { "$ref": "#/definitions/inContainer"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "day": { "type": "object",
+      "description": "a single day",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "description of day"
+        },
+        "value": {
+          "type": "number",
+          "description": "day",
+          "minimum": 1,
+          "maximum": 31
+        },
+        "hasMonth": { "$ref": "#/definitions/hasMonth"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "document": { "type": "object",
+      "description": "parent data structure (eg. webpage or spreadsheet) or a smaller, discrete unit within such a data structure (eg. paragraph or row)",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "filepath": {
+          "type": "string",
+          "description": "local file system path to any file that is the origin of the source data"
+        },
+        "name": {
+          "type": "string",
+          "description": "an original document reference no."
+        },
+        "quality": {
+          "type": "string",
+          "description": "indication of the quality and/or reliability of the source data"
+        },
+        "ref": {
+          "type": "string",
+          "description": "original machine-readable or system identifier"
+        },
+        "type": {
+          "type": "string",
+          "description": "nature or format of the container data structure"
+        },
+        "URL": {
+          "type": "string",
+          "description": "container webpage (or sub-section thereof if identified by a '#' fragment identifier)"
+        },
+        "hasDay": { "$ref": "#/definitions/hasDay"
+        },
+        "hasEndYear": { "$ref": "#/definitions/hasEndYear"
+        },
+        "hasMonth": { "$ref": "#/definitions/hasMonth"
+        },
+        "hasStartYear": { "$ref": "#/definitions/hasStartYear"
+        },
+        "hasTime": { "$ref": "#/definitions/hasTime"
+        },
+        "hasYear": { "$ref": "#/definitions/hasYear"
+        },
+        "heldBy": { "$ref": "#/definitions/heldBy"
+        },
+        "inContainer": { "$ref": "#/definitions/inContainer"
+        }
+      }
+    },
+    "event": { "type": "object",
+      "description": "a personal event",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "genre": {
+          "type": "string",
+          "description": "genre of event"
+        },
+        "type": {
+          "type": "string",
+          "description": "name of event"
+        },
+        "hasDay": { "$ref": "#/definitions/hasDay"
+        },
+        "hasEndYear": { "$ref": "#/definitions/hasEndYear"
+        },
+        "hasMonth": { "$ref": "#/definitions/hasMonth"
+        },
+        "hasOrganisations": { "$ref": "#/definitions/hasOrganisations"
+        },
+        "hasPlaces": { "$ref": "#/definitions/hasPlaces"
+        },
+        "hasStartYear": { "$ref": "#/definitions/hasStartYear"
+        },
+        "hasTime": { "$ref": "#/definitions/hasTime"
+        },
+        "hasYear": { "$ref": "#/definitions/hasYear"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "familyName": { "type": "object",
+      "description": "person's family name",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of person's family name"
+        },
+        "type": {
+          "type": "string",
+          "description": "type of person's family name"
+        },
+        "familyNameAliases": { "type": "array",
+          "description": "person's family name has alias(es)",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of person's family name alias"
+              },
+              "familyName": { "$ref": "#/definitions/familyName"
+              }
+            }
+          }
+        },
+        "hasParticle": { "$ref": "#/definitions/hasParticle"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "foreName": { "type": "object",
+      "description": "person's forename",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "forename"
+        },
+        "type": {
+          "type": "string",
+          "description": "type of forename"
+        },
+        "foreNameAliases": { "type": "array",
+          "description": "forename has alias(es)",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of alias"
+              },
+              "foreName": { "$ref": "#/definitions/foreName"
+              }
+            }
+          }
+        },
+        "hasParticle": { "$ref": "#/definitions/hasParticle"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "hasDay": { "type": "object",
+      "description": "has a day date",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "type": {
+          "type": "string",
+          "description": "exactness of day date",
+          "enum": [
+            "APPROX",
+            "EXACT"
+          ],
+          "default": "APPROX"
+        },
+        "day": { "$ref": "#/definitions/day"
+        }
+      }
+    },
+    "hasEndYear": { "type": "object",
+      "description": "has an end year date",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "type": {
+          "type": "string",
+          "description": "exactness of end year date",
+          "enum": [
+            "APPROX",
+            "EXACT"
+          ],
+          "default": "APPROX"
+        },
+        "year": { "$ref": "#/definitions/year"
+        }
+      }
+    },
+    "hasMonth": { "type": "object",
+      "description": "has a month date",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "type": {
+          "type": "string",
+          "description": "exactness of month date",
+          "enum": [
+            "APPROX",
+            "EXACT"
+          ],
+          "default": "APPROX"
+        },
+        "month": { "$ref": "#/definitions/month"
+        }
+      }
+    },
+    "hasOrganisations": { "type": "array",
+      "description": "involves organisation(s)",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of involvement with organisation"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of involvement with organisation"
+          },
+          "organisation": { "$ref": "#/definitions/organisation"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of involvement with organisation"
+          }
+        }
+      }
+    },
+    "hasParticle": { "type": "object",
+      "description": "alias has nobiliary or other descriptive/prepositional particle(s)",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "particle": { "type": "object",
+          "description": "nobiliary/descriptive/prepositional particle",
+          "properties": {
+            "comments": {
+              "type": "string",
+              "description": "notes or comments"
+            },
+            "name": {
+              "type": "string",
+              "description": "name of particle"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "description": "type of particle"
+        }
+      }
+    },
+    "hasPlaces": { "type": "array",
+      "description": "has association with a place",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "comments": {
+            "type": "string",
+            "description": "notes or comments"
+          },
+          "certain": {
+            "type": "boolean",
+            "description": "certainty of association with the place"
+          },
+          "dateEnd": {
+            "type": "number",
+            "description": "end of association with the place"
+          },
+          "dateStart": {
+            "type": "number",
+            "description": "start of association with the place"
+          },
+          "place": { "$ref": "#/definitions/place"
+          },
+          "precedence": {
+            "type": "integer",
+            "description": "sequence of association with the place"
+          },
+          "type": {
+            "type": "string",
+            "description": "nature of association with the place"
+          }
+        }
+      }
+    },
+    "hasStartYear": { "type": "object",
+      "description": "has a start year date",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "type": {
+          "type": "string",
+          "description": "exactness of start year date",
+          "enum": [
+            "APPROX",
+            "EXACT"
+          ],
+          "default": "APPROX"
+        },
+        "year": { "$ref": "#/definitions/year"
+        }
+      }
+    },
+    "hasTime": { "type": "object",
+      "description": "has a time",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "type": {
+          "type": "string",
+          "description": "exactness of time",
+          "enum": [
+            "APPROX",
+            "EXACT"
+          ],
+          "default": "APPROX"
+        },
+        "time": { "$ref": "#/definitions/time"
+        }
+      }
+    },
+    "hasYear": { "type": "object",
+      "description": "has a single year date",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "type": {
+          "type": "string",
+          "description": "exactness of single year date",
+          "enum": [
+            "APPROX",
+            "EXACT"
+          ],
+          "default": "APPROX"
+        },
+        "year": { "$ref": "#/definitions/year"
+        }
+      }
+    },
+    "heldBy": { "type": "object",
+      "description": "repository or institution which curates the source document, catalogue, dataset, website etc",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "organisation": { "$ref": "#/definitions/organisation"
+        }
+      }
+    },
+    "inContainer": { "type": "object",
+      "description": "document or data source in which person is found",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "context": { "$ref": "#/definitions/context"
+        },
+        "document": { "$ref": "#/definitions/document"
+        },
+        "source": { "$ref": "#/definitions/source"
+        }
+      }
+    },
+    "month": { "type": "object",
+      "description": "a single month",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "description of month"
+        },
+        "value": {
+          "type": "number",
+          "description": "month",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "hasYear": { "$ref": "#/definitions/hasYear"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "occupation": { "type": "object",
+      "description": "person's occupation",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "genre": {
+          "type": "string",
+          "description": "field of occupation"
+        },
+        "hasOrganisations": { "$ref": "#/definitions/hasOrganisations"
+        },
+        "hasPlaces": { "$ref": "#/definitions/hasPlaces"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of occupation"
+        },
+        "occupationAliases": { "type": "array",
+          "description": "occupation has alias(es)",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "occupation": { "$ref": "#/definitions/occupation"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of alias"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "organisation": { "type": "object",
+      "description": "an organisation or group",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "genre": {
+          "type": "string",
+          "description": "genre of organisation"
+        },
+        "hasPlaces": { "$ref": "#/definitions/hasPlaces"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of organisation"
+        },
+        "organisationAliases": { "type": "array",
+          "description": "organisation has alias(es)",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "organisation": { "$ref": "#/definitions/organisation"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of alias"
+              }
+            }
+          }
+        },
+        "ref": {
+          "type": "string",
+          "description": "organisation identifier"
+        },
+        "type": {
+          "type": "string",
+          "description": "type of organisation"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "place": { "type": "object",
+      "description": "a place or location",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of place"
+        },
+        "type": {
+          "type": "string",
+          "description": "type of place"
+        },
+        "hasPlaces": { "$ref": "#/definitions/hasPlaces"
+        },
+        "placeAliases": { "type": "array",
+          "description": "place has alias(es)",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "place": { "$ref": "#/definitions/place"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of place alias"
+              }
+            }
+          }
+        },
+        "withinPlaces": { "type": "array",
+          "description": "place is wholly or partially contained by another place",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "certain": {
+                "type": "boolean",
+                "description": "certainty of association with the place"
+              },
+              "dateEnd": {
+                "type": "number",
+                "description": "end of association with the place"
+              },
+              "dateStart": {
+                "type": "number",
+                "description": "start of association with the place"
+              },
+              "place": { "$ref": "#/definitions/place"
+              },
+              "precedence": {
+                "type": "integer",
+                "description": "sequence of association with the place"
+              },
+              "type": {
+                "type": "string",
+                "description": "nature of association with the place"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "source": { "type": "object",
+      "description": "a wider document container (eg. website or folder)",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "an original reference no."
+        },
+        "quality": {
+          "type": "string",
+          "description": "indication of the quality and/or reliability of the source data"
+        },
+        "ref": {
+          "type": "string",
+          "description": "original machine-readable or system identifier"
+        },
+        "type": {
+          "type": "string",
+          "description": "format of the document container"
+        },
+        "URL": {
+          "type": "string",
+          "description": "container website"
+        },
+        "hasDay": { "$ref": "#/definitions/hasDay"
+        },
+        "hasEndYear": { "$ref": "#/definitions/hasEndYear"
+        },
+        "hasMonth": { "$ref": "#/definitions/hasMonth"
+        },
+        "hasStartYear": { "$ref": "#/definitions/hasStartYear"
+        },
+        "hasTime": { "$ref": "#/definitions/hasTime"
+        },
+        "hasYear": { "$ref": "#/definitions/hasYear"
+        },
+        "heldBy": { "$ref": "#/definitions/heldBy"
+        }
+      }
+    },
+    "time": { "type": "object",
+      "description": "a single time",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "description of time"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "time"
+        },
+        "hasDay": { "$ref": "#/definitions/hasDay"
+        }
+      },
+      "required": [
+        "timestamp"
+      ]
+    },
+    "title": { "type": "object",
+      "description": "person's title",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of title"
+        },
+        "titleAliases": { "type": "array",
+          "description": "title has alias(es)",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "comments": {
+                "type": "string",
+                "description": "notes or comments"
+              },
+              "title": { "$ref": "#/definitions/title"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of alias"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "year": { "type": "object",
+      "description": "a single year",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "notes or comments"
+        },
+        "name": {
+          "type": "string",
+          "description": "description of year"
+        },
+        "value": {
+          "type": "number",
+          "description": "year",
+          "minimum": 1000,
+          "maximum": 2025
+        }
+      },
+      "required": [
+        "value"
+      ]
+    }
+  }
+}

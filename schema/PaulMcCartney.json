@@ -1,0 +1,811 @@
+  {
+    "aliveYear": {
+      "certain": true,
+      "year": {
+        "value": 2016
+      }
+    },
+    "deadYear": {
+      "certain": false,
+      "comments": "This node appears for illustrative purposes only",
+      "year": {
+        "value": 2016
+      }
+    },
+    "hasAge": {
+      "dateStart": 2016,
+      "age": {
+        "name": "mid seventies",
+        "start": 74,
+        "end": 76,
+        "type": "APPROX"
+      }
+    },
+    "hasAliases": [
+      {
+        "type": "nickname",
+        "alias": {
+          "name": "Macca"
+        }
+      }
+    ],
+    "hasAwards": [
+      {
+        "dateStart": 1965,
+        "award": {
+          "name": "MBE",
+          "awardAliases": [
+            {
+              "type": "full",
+              "award": {
+                "name": "Member of the Most Excellent Order of the British Empire"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasChilds": [
+      {
+        "dateStart": 1969,
+        "precedence": 1,
+        "type": "adopted",
+        "person": {
+          "ref": "TTT000000002",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "precedence": 1,
+              "familyName": {
+                "name": "Eastman"
+              }
+            },
+            {
+              "order": 1,
+              "precedence": 2,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Heather"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      },
+      {
+        "dateStart": 19690828,
+        "precedence": 2,
+        "person": {
+          "ref": "TTT000000003",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Mary"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      },
+      {
+        "dateStart": 19710913,
+        "precedence": 3,
+        "person": {
+          "ref": "TTT000000004",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Stella"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      },
+      {
+        "dateStart": 197709,
+        "precedence": 4,
+        "person": {
+          "ref": "TTT000000005",
+          "type": "MALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "James"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      },
+      {
+        "dateStart": 2003,
+        "precedence": 5,
+        "person": {
+          "ref": "TTT000000006",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Beatrice"
+              }
+            },
+            {
+              "order": 2,
+              "foreName": {
+                "name": "Milly"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      }
+    ],
+    "hasEvents": [
+      {
+        "event": {
+          "type": "birth",
+          "hasDay": {
+            "day": {
+              "name": "18th",
+              "value": 18,
+              "hasMonth": {
+                "month": {
+                  "name": "June",
+                  "value": 6,
+                  "hasYear": {
+                    "year": {
+                      "value": 1942
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "hasOrganisations": [
+            {
+              "organisation": {
+                "name": "Walton Hospital",
+                "genre": "medical",
+                "type": "hospital"
+              }
+            }
+          ],
+          "hasPlaces": [
+            {
+              "place": {
+                "name": "Liverpool",
+                "type": "city"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasFamilyNames": [
+      {
+        "order": 1,
+        "familyName": {
+          "name": "McCartney",
+          "familyNameAliases": [
+            {
+              "type": "variant",
+              "familyName": {
+                "name": "Macartney"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasForeNames": [
+      {
+        "order": 1,
+        "preference": 2,
+        "foreName": {
+          "name": "James"
+        }
+      },
+      {
+        "order": 2,
+        "preference": 1,
+        "foreName": {
+          "name": "Paul"
+        }
+      }
+    ],
+    "hasNationalities": [
+      {
+        "nationality": {
+          "name": "British",
+          "ref": "GB"
+        }
+      }
+    ],
+    "hasOccupations": [
+      {
+        "dateStart": 1956,
+        "occupation": {
+          "genre": "music",
+          "name": "songwriter",
+          "occupationAliases": [
+            {
+              "type": "alternative",
+              "occupation": {
+                "name": "musician"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasParents": [
+      {
+        "type": "natural",
+        "person": {
+          "ref": "TTT000000007",
+          "type": "MALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "James",
+                "foreNameAliases": [
+                  {
+                    "type": "diminutive",
+                    "foreName": {
+                      "name": "Jim"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      },
+      {
+        "type": "natural",
+        "person": {
+          "ref": "TTT000000008",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "precedence": 1,
+              "familyName": {
+                "name": "Mohin"
+              }
+            },
+            {
+              "order": 1,
+              "precedence": 2,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Mary"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      }
+    ],
+    "hasPlaces": [
+      {
+        "dateStart": 1963,
+        "dateEnd": 1966,
+        "type": "home",
+        "place": {
+          "name": "Wimpole Street",
+          "type": "street",
+          "placeAliases": [
+            {
+              "type": "postcode",
+              "place": {
+                "name": "W1G 8YW"
+              }
+            }
+          ],
+          "withinPlaces": [
+            {
+              "place": {
+                "name": "London",
+                "type": "city"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasReferences": [
+      {
+        "comments": "This edge appears for illustrative purposes only",
+        "reference": {
+          "comments": "This node appears for illustrative purposes only",
+          "name": ""
+        }
+      }
+    ],
+    "hasRelations": [
+      {
+        "name": "aunt",
+        "person": {
+          "ref": "TTT000000009",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "Kendall"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Mildred",
+                "foreNameAliases": [
+                  {
+                    "preference": 1,
+                    "type": "diminutive",
+                    "foreName": {
+                      "name": "Milly",
+                      "foreNameAliases": [
+                        {
+                          "foreName": {
+                            "name": "Millie"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      }
+    ],
+    "hasRoles": [
+      {
+        "dateStart": 1957,
+        "dateEnd": 1960,
+        "name": "member",
+        "organisation": {
+          "name": "The Quarrymen",
+          "genre": "music",
+          "type": "group"
+        }
+      },
+      {
+        "dateStart": 1960,
+        "dateEnd": 1970,
+        "name": "member",
+        "organisation": {
+          "name": "The Beatles",
+          "genre": "music",
+          "type": "group",
+          "organisationAliases": [
+            {
+              "type": "nickname",
+              "organisation": {
+                "name": "The Fab Four"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "dateStart": 1970,
+        "dateEnd": 1981,
+        "name": "member",
+        "organisation": {
+          "name": "Wings",
+          "genre": "music",
+          "type": "group"
+        }
+      },
+      {
+        "name": "supporter",
+        "organisation": {
+          "name": "Make Poverty History",
+          "genre": "charity",
+          "type": "campaign"
+        }
+      }
+    ],
+    "hasSiblings": [
+      {
+        "dateStart": 19440107,
+        "person": {
+          "ref": "TTT000000010",
+          "type": "MALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasAlias": [
+            {
+              "type": "pseudonym",
+              "alias": {
+                "name": "Mike McGear"
+              }
+            }
+          ],
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Michael",
+                "foreNameAliases": [
+                  {
+                    "type": "diminutive",
+                    "foreName": {
+                      "name": "Mike"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      }
+    ],
+    "hasSpouses": [
+      {
+        "dateStart": 1969,
+        "dateEnd": 1998,
+        "precedence": 1,
+        "type": "marriage",
+        "person": {
+          "ref": "TTT000000011",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "precedence": 1,
+              "familyName": {
+                "name": "Eastman"
+              }
+            },
+            {
+              "order": 1,
+              "precedence": 2,
+              "familyName": {
+                "name": "McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Linda"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      },
+      {
+        "dateStart": 2002,
+        "dateEnd": 2008,
+        "precedence": 2,
+        "type": "marriage",
+        "person": {
+          "ref": "TTT000000012",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "precedence": 1,
+              "familyName": {
+                "name": "Mills"
+              }
+            },
+            {
+              "order": 1,
+              "precedence": 2,
+              "familyName": {
+                "name": "Mills-McCartney"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Heather"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      },
+      {
+        "dateStart": 2011,
+        "precedence": 3,
+        "type": "marriage",
+        "person": {
+          "ref": "TTT000000013",
+          "type": "FEMALE",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "order": 1,
+              "familyName": {
+                "name": "Shevell"
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "order": 1,
+              "foreName": {
+                "name": "Nancy"
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      }
+    ],
+    "hasTitles": [
+      {
+        "dateStart": 1997,
+        "title": {
+          "name": "Sir",
+          "titleAliases": [
+            {
+              "type": "full",
+              "title": {
+                "name": "Knight Bachelor"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "inContainer": {
+      "context": {
+        "name": "McCartney, James Paul v Lennon, John Winston Ono, Apple Corps Ltd and Maclen Music Ltd",
+        "inContainer": {
+          "document": {
+            "name": "J 84/649",
+            "ref": "C3332871",
+            "type": "metadata",
+            "URL": "http://discovery.nationalarchives.gov.uk/details/r/C3332871",
+            "hasStartYear": {
+                "year": {
+                  "value": 1971
+              }
+            },
+            "hasEndYear": {
+                "year": {
+                  "value": 1982
+              }
+            },
+            "inContainer": {
+              "source": {
+                "name": "Discovery",
+                "type": "catalogue",
+                "URL": "http://discovery.nationalarchives.gov.uk",
+                "heldBy": {
+                  "organisation": {
+                    "name": "The National Archives",
+                    "genre": "government",
+                    "type": "repository",
+                    "organisationAliases": [
+                      {
+                        "type": "acronym",
+                        "organisation": {
+                          "name": "TNA"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ref": "TTT000000001",
+    "sameAs": [
+      {
+        "comments": "This edge appears for illustrative purposes only",
+        "genre": "documented",
+        "id": "0000000000",
+        "score": 0,
+        "timestamp": "",
+        "type": "",
+        "person": {
+          "comments": "This node appears for illustrative purposes only",
+          "ref": "TTT000000000",
+          "type": "UNKNOWN",
+          "timestamp": "2016-06-18T00:00:00",
+          "hasFamilyNames": [
+            {
+              "comments": "This edge appears for illustrative purposes only",
+              "order": 1,
+              "familyName": {
+                "comments": "This node appears for illustrative purposes only",
+                "name": ""
+              }
+            }
+          ],
+          "hasForeNames": [
+            {
+              "comments": "This edge appears for illustrative purposes only",
+              "order": 1,
+              "foreName": {
+                "comments": "This node appears for illustrative purposes only",
+                "name": ""
+              }
+            }
+          ],
+          "inContainer": {
+            "comments": "This edge appears for illustrative purposes only",
+            "context": {
+              "comments": "This node appears for illustrative purposes only",
+              "name": ""
+            }
+          }
+        }
+      }
+    ],
+    "timestamp": "2016-06-18T00:00:00",
+    "type": "MALE"
+  }
